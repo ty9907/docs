@@ -1,0 +1,17 @@
+project:
+  path: C:/path/to/your/project
+  backend:
+    health_endpoint: http://localhost:8080/actuator/health
+    log_path: logs/application.log
+    idea_run_config: Spring Boot DevTools
+  frontend:
+    start_cmd: npm run dev
+    cwd: frontend
+    dev_server_url: http://localhost:3000
+test:
+  cases_file: cases/e2e_cases.yaml
+  max_retries: 3
+  confidence_threshold: 0.70
+repair:
+  mode: approval_required # approval_required | read_only
+  allowed_targets: [frontend-engineer, backend-engineer]

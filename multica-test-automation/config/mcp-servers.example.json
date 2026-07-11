@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp", "--headless"]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp"]
+    },
+    "jetbrains": {
+      "command": "java",
+      "args": ["-jar", "C:/path/to/jetbrains-mcp-server.jar"],
+      "env": {"IDE_PORT": "63342"}
+    }
+  }
+}

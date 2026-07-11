@@ -1,0 +1,19 @@
+workspace:
+  name: local-test-healer
+  description: 本地自动化测试与人工审批的自愈闭环
+agents:
+  - name: orchestrator
+    skill: ./skills/orchestrator
+    provider: codex
+  - name: backend-engineer
+    skill: ./skills/backend-monitor
+    provider: codex
+    mcp_config: ./config/mcp-servers.json
+  - name: frontend-engineer
+    skill: ./skills/frontend-monitor
+    provider: codex
+    mcp_config: ./config/mcp-servers.json
+  - name: qa-automation
+    skill: ./skills/browser-automation
+    provider: codex
+    mcp_config: ./config/mcp-servers.json

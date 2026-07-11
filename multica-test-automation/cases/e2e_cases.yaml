@@ -1,0 +1,31 @@
+cases:
+  - id: login
+    description: 正常登录
+    steps:
+      - action: navigate
+        url: /login
+      - action: fill
+        selector: "#email"
+        value: test@test.com
+      - action: fill
+        selector: "#password"
+        value: "123456"
+      - action: click
+        selector: "#login-btn"
+      - action: assert_visible
+        selector: ".dashboard"
+  - id: create_order
+    description: 创建订单
+    depends_on: [login]
+    steps:
+      - action: navigate
+        url: /products
+      - action: click
+        selector: "[data-testid='add-to-cart']"
+      - action: assert_visible
+        selector: ".order-summary"
+      - action: api_verify
+        method: GET
+        url: http://localhost:8080/api/orders/latest
+        expect_json:
+          status: PENDING
